@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>DataWazi — Pre-Seed Pitch Deck</title>
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/franklinrw/image/upload/v1771498982/image_2_oezylb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+:root {
+  --font-size: 16px;
+  --background: #EDEAE2;
+  --foreground: #0C0C0A;
+  --card: #F7F5EF;
+  --primary: #FF2D00;
+  --primary-foreground: #FFFFFF;
+  --secondary: #0C0C0A;
+  --secondary-foreground: #EDEAE2;
+  --muted: #D9D6CE;
+  --muted-foreground: #5C5B55;
+  --border: rgba(12, 12, 10, 0.18);
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --nav-height: 72px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  padding: 0 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(237, 234, 226, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.nav-logo-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.nav-link:hover { color: var(--foreground); }
+
+/* Pitch deck */
+.pitch-deck {
+  padding-top: var(--nav-height);
+}
+
+.slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 48px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.slide:last-child { border-bottom: none; }
+
+.slide-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Hero / Cover specific */
+.hero-section {
+  background: linear-gradient(145deg, var(--background) 0%, #f0ede4 45%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pitch-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+/* Stat numbers */
+.stat-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-top: 8px;
+}
+
+/* Grid layouts */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin: 32px 0;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+.four-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+.card {
+  background: var(--card);
+  padding: 32px;
+  transition: all 0.2s;
+}
+
+.card:hover { background: var(--muted); }
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all 0.2s;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.team-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  display: block;
+  border: 3px solid var(--primary);
+}
+
+.team-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.team-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.team-bio {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.team-bio p {
+  margin-bottom: 8px;
+}
+
+/* Problem list */
+.problem-list {
+  margin: 24px 0;
+}
+
+.problem-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.problem-item .material-icons {
+  color: var(--primary);
+  font-size: 20px;
+}
+
+/* Step list */
+.step-list {
+  margin: 32px 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.step-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 50px;
+}
+
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+/* Stats row */
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* Users grid */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.user-card {
+  background: var(--card);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.user-card .material-icons {
+  color: var(--primary);
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+/* Clean slideshow */
+.demo-slideshow {
+  width: 100%;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.slideshow-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slideshow-image {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-lg);
+}
+
+/* Slide number */
+.slide-number {
+  position: absolute;
+  bottom: 30px;
+  right: 48px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+  opacity: 0.5;
+}
+
+/* CTA */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 14px 36px;
+  border-radius: 100px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 24px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 45, 0, 0.2);
+}
+
+/* Vision quote */
+.vision-quote {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 500;
+  text-align: center;
+  max-width: 800px;
+  margin: 48px auto;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Advantage list */
+.advantage-list {
+  margin: 24px 0;
+}
+
+.advantage-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.advantage-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.advantage-desc {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav { padding: 0 24px; }
+  .slide { padding: 60px 24px; }
+  .slide-number { right: 24px; bottom: 20px; }
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .three-col { grid-template-columns: 1fr; }
+  .four-col { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .users-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { flex-direction: column; }
+  .vision-quote { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .users-grid { grid-template-columns: 1fr; }
+  .title { font-size: clamp(2rem, 6vw, 2.5rem); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <img class="nav-logo-img" src="https://res.cloudinary.com/franklinrw/image/upload/v1771498982/image_2_oezylb.jpg" alt="DataWazi">
+    <span class="nav-logo-text">DataWazi</span>
+  </a>
+  <div class="nav-links">
+    <a href="#hero" class="nav-link">Cover</a>
+    <a href="#slide1" class="nav-link">Intro</a>
+    <a href="#slide2" class="nav-link">Problem</a>
+    <a href="#slide4" class="nav-link">Solution</a>
+    <a href="#slide5" class="nav-link">How It Works</a>
+    <a href="#slide6" class="nav-link">Vision</a>
+    <a href="#slide7" class="nav-link">Market</a>
+    <a href="#slide9" class="nav-link">Competition</a>
+    <a href="#slide11" class="nav-link">Team</a>
+    <a href="#slide13" class="nav-link">Ask</a>
+  </div>
+</nav>
+
+<div class="pitch-deck">
+
+  <!-- HERO / COVER PAGE -->
+  <section class="slide hero-section" id="hero">
+    <div class="hero-grain"></div>
+    <div class="slide-content" style="text-align: center;">
+      <span class="pitch-badge">Confidential · Pre-Seed</span>
+      <h1 class="title" style="font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 16px;">DataWazi</h1>
+      <p style="font-size: 1.2rem; margin-bottom: 48px; color: var(--primary); font-weight: 500;">Turning raw data into clear understanding</p>
+      
+      <div style="display: inline-block; background: var(--secondary); padding: 8px 24px; border-radius: 100px; margin-bottom: 48px;">
+        <span style="font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--secondary-foreground);">Investor Pitch Deck</span>
+      </div>
+      
+      <div class="two-col" style="max-width: 600px; margin: 0 auto;">
+        <div class="stat-card">
+          <div class="stat-number">$1.2M</div>
+          <div class="stat-label">Pre-Seed Raise</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">MVP</div>
+          <div class="stat-label">Built & Ready</div>
+        </div>
+      </div>
+      
+      <p style="margin-top: 48px; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted-foreground);">15 slides · Confidential · Not for distribution</p>
+    </div>
+    <div class="slide-number">Cover</div>
+  </section>
+
+  <!-- SLIDE 1: INTRODUCTION -->
+  <section class="slide" id="slide1">
+    <div class="slide-content">
+      <span class="eyebrow">01 · Introduction</span>
+      <h1 class="title">DataWazi</h1>
+      <p class="subtitle">Turning raw data into clear understanding.</p>
+      
+      <div class="card" style="margin-bottom: 32px;">
+        <p style="font-size: 1rem;">Data today lives everywhere.</p>
+        <p style="margin-top: 12px; color: var(--muted-foreground);">Spreadsheets, cloud files, emails, Slack messages, and databases all contain important information — but none of it is connected in a simple way.</p>
+        <p style="margin-top: 16px; color: var(--muted-foreground);">This makes analysis slow, fragmented, and technical.</p>
+      </div>
+      
+      <div class="two-col" style="margin-top: 24px;">
+        <div class="stat-card">
+          <div class="stat-number">$1.2M</div>
+          <div class="stat-label">Pre-Seed Raise</div>
+          <div class="stat-desc" style="margin-top: 8px;">MVP built · Ready to launch</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">18mo</div>
+          <div class="stat-label">Runway</div>
+          <div class="stat-desc" style="margin-top: 8px;">To launch and scale</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">01 / 15</div>
+  </section>
+
+  <!-- SLIDE 2: PROBLEM -->
+  <section class="slide" id="slide2">
+    <div class="slide-content">
+      <span class="eyebrow">02 · The Problem</span>
+      <h2 class="title">Data is everywhere, but it is not easy to use.</h2>
+      
+      <div class="three-col">
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">device_hub</span>
+          <h3>Scattered data</h3>
+          <p>Information is spread across Excel, Google Sheets, Slack, Gmail, and databases.</p>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">hourglass_empty</span>
+          <h3>Slow analysis</h3>
+          <p>Cleaning, organizing, and analyzing data takes hours or days.</p>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">build</span>
+          <h3>Technical barriers</h3>
+          <p>Most people cannot easily explore data without SQL, dashboards, or analysts.</p>
+        </div>
+      </div>
+      
+      <div class="card" style="margin-top: 24px; background: var(--primary); color: white; text-align: center;">
+        <p>As a result, decisions are delayed or made with incomplete information.</p>
+      </div>
+    </div>
+    <div class="slide-number">02 / 15</div>
+  </section>
+
+  <!-- SLIDE 3: PROBLEM (DEEP INSIGHT) -->
+  <section class="slide" id="slide3">
+    <div class="slide-content" style="text-align: center;">
+      <span class="eyebrow">03 · Deep Insight</span>
+      
+      <div class="vision-quote" style="margin: 32px auto;">
+        "The real problem is not lack of data."
+      </div>
+      
+      <div class="card" style="background: var(--primary); color: white; margin: 24px 0;">
+        <p style="font-size: 1.2rem;">👉 Data is disconnected, unclean, and not understandable in its raw form.</p>
+      </div>
+      
+      <p class="subtitle" style="margin-top: 32px;">Every organization already has the answers — but they are hidden inside different systems.</p>
+    </div>
+    <div class="slide-number">03 / 15</div>
+  </section>
+
+  <!-- SLIDE 4: SOLUTION + SLIDESHOW -->
+  <section class="slide" id="slide4">
+    <div class="slide-content">
+      <span class="eyebrow">04 · The Solution</span>
+      <h2 class="title">DataWazi is an AI platform that turns raw data into clear answers.</h2>
+      <p class="subtitle">It connects, cleans, analyzes, and explains your data automatically.</p>
+      
+      <div class="demo-slideshow" id="demoSlideshow">
+        <div class="slideshow-track" id="slideshowTrack">
+          <img class="slideshow-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1780089541/land_jxhtjz.png" alt="DataWazi Dashboard">
+          <img class="slideshow-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1780089542/dat_moecru.png" alt="DataWazi Data View">
+          <img class="slideshow-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1780089541/ins_ruevg6.png" alt="DataWazi Insights">
+          <img class="slideshow-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1780089541/cl_cm0of9.png" alt="DataWazi Cleaning">
+          <img class="slideshow-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1780089541/upload_pktzzw.png" alt="DataWazi Upload">
+        </div>
+      </div>
+      
+      <div class="three-col" style="margin-top: 24px;">
+        <div class="card"><span class="material-icons" style="color: var(--primary);">cloud_upload</span><h3>Upload files</h3><p>Excel, CSV</p></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary);">link</span><h3>Connect sources</h3><p>Google Drive, Slack, Gmail, databases — coming next</p></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary);">cleaning_services</span><h3>Clean data</h3><p>Automatically or manually</p></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary);">bar_chart</span><h3>Visualize</h3><p>Charts and dashboards</p></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary);">chat</span><h3>Chat with data</h3><p>Plain English</p></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary);">insights</span><h3>Get insights</h3><p>Warnings, predictions</p></div>
+      </div>
+      
+      <p style="text-align: center; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 0.7rem;">No coding. No analysts. No complexity.</p>
+    </div>
+    <div class="slide-number">04 / 15</div>
+  </section>
+
+  <!-- SLIDE 5: HOW IT WORKS -->
+  <section class="slide" id="slide5">
+    <div class="slide-content">
+      <span class="eyebrow">05 · How It Works</span>
+      <h2 class="title">It starts with your data.</h2>
+      
+      <div class="step-list">
+        <div class="step-item"><div class="step-number">01</div><div><div class="step-title">Give your data</div><div class="step-desc">Upload files or connect future data sources (Excel first, then tools like Slack, Gmail, and databases)</div></div></div>
+        <div class="step-item"><div class="step-number">02</div><div><div class="step-title">Clean your data</div><div class="step-desc">AI detects issues like missing values, duplicates, and errors. You can also clean manually.</div></div></div>
+        <div class="step-item"><div class="step-number">03</div><div><div class="step-title">Visualize your data</div><div class="step-desc">Your data becomes charts, tables, and dashboards automatically.</div></div></div>
+        <div class="step-item"><div class="step-number">04</div><div><div class="step-title">Chat with your data</div><div class="step-desc">Ask questions like a human conversation and get instant answers.</div></div></div>
+        <div class="step-item"><div class="step-number">05</div><div><div class="step-title">Understand your data</div><div class="step-desc">AI explains patterns, generates insights, highlights risks, and creates predictions.</div></div></div>
+        <div class="step-item"><div class="step-number">06</div><div><div class="step-title">Create outputs</div><div class="step-desc">Generate reports and presentations ready to export and share.</div></div></div>
+      </div>
+    </div>
+    <div class="slide-number">05 / 15</div>
+  </section>
+
+  <!-- SLIDE 6: VISION -->
+  <section class="slide" id="slide6">
+    <div class="slide-content" style="text-align: center;">
+      <span class="eyebrow">06 · Vision</span>
+      
+      <div class="vision-quote">
+        "DataWazi becomes the universal data intelligence layer."
+      </div>
+      
+      <p class="subtitle">A system where all data sources connect into one place and become instantly understandable.</p>
+      
+      <div class="stats-row" style="margin-top: 48px;">
+        <div class="stat-card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">cloud_queue</span><p><strong>Raw data</strong></p></div>
+        <div class="stat-card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">insights</span><p><strong>→ Insight</strong></p></div>
+        <div class="stat-card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">trending_up</span><p><strong>→ Decision</strong></p></div>
+        <div class="stat-card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">share</span><p><strong>→ Communication</strong></p></div>
+      </div>
+    </div>
+    <div class="slide-number">06 / 15</div>
+  </section>
+
+  <!-- SLIDE 7: USE CASES -->
+  <section class="slide" id="slide7">
+    <div class="slide-content">
+      <span class="eyebrow">07 · Use Cases</span>
+      <h2 class="title">DataWazi can be used across industries</h2>
+      
+      <div class="users-grid">
+        <div class="user-card"><span class="material-icons">business</span><h3>Business reporting</h3><p>without analysts</p></div>
+        <div class="user-card"><span class="material-icons">rocket_launch</span><h3>Startup growth tracking</h3></div>
+        <div class="user-card"><span class="material-icons">school</span><h3>Academic research analysis</h3></div>
+        <div class="user-card"><span class="material-icons">favorite</span><h3>NGO reporting</h3><p>and impact measurement</p></div>
+        <div class="user-card"><span class="material-icons">settings</span><h3>Operations monitoring</h3><p>across teams</p></div>
+        <div class="user-card"><span class="material-icons">trending_up</span><h3>Financial and sales analytics</h3></div>
+      </div>
+    </div>
+    <div class="slide-number">07 / 15</div>
+  </section>
+
+  <!-- SLIDE 8: MARKET OPPORTUNITY -->
+  <section class="slide" id="slide8">
+    <div class="slide-content">
+      <span class="eyebrow">08 · Market Opportunity</span>
+      <h2 class="title">Data is growing faster than teams can analyze it.</h2>
+      
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-number" style="font-size: 2rem;">$2B+</div><div class="stat-label">Content & data analytics tools</div></div>
+        <div class="stat-card"><div class="stat-number" style="font-size: 2rem;">$4.6B+</div><div class="stat-label">Enterprise reporting & BI systems</div></div>
+        <div class="stat-card"><div class="stat-number" style="font-size: 2rem;">$24B+</div><div class="stat-label">Global data analysis & interpretation</div></div>
+      </div>
+      
+      <div class="card" style="text-align: center; margin-top: 24px;">
+        <p>Millions of organizations still rely on manual tools.</p>
+      </div>
+    </div>
+    <div class="slide-number">08 / 15</div>
+  </section>
+
+  <!-- SLIDE 9: COMPETITION -->
+  <section class="slide" id="slide9">
+    <div class="slide-content">
+      <span class="eyebrow">09 · Competition</span>
+      <h2 class="title">The data analysis space is already crowded, but most tools solve only part of the problem.</h2>
+      
+      <div class="four-col">
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">analytics</span>
+          <h3>Traditional BI Tools</h3>
+          <p>Tableau, Power BI, Looker</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;">They require setup, training, and technical knowledge. They depend on dashboards built by analysts.</p>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">chat</span>
+          <h3>AI + Analytics Tools</h3>
+          <p>Chat-based analytics, early AI assistants</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;">They can answer questions, but are limited in depth, structure, and reliability.</p>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">code</span>
+          <h3>Developer / Data Tools</h3>
+          <p>SQL-based systems, notebooks, pipelines</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;">Powerful, but not accessible to non-technical users.</p>
+        </div>
+        <div class="card">
+          <span class="material-icons" style="color: var(--primary); font-size: 32px;">trending_up</span>
+          <h3>Key Gap in the Market</h3>
+          <p>clean → analyze → visualize → understand → report → present</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;">Most solutions focus on either visualization or querying, but not the full workflow.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">09 / 15</div>
+  </section>
+
+  <!-- SLIDE 10: COMPETITIVE ADVANTAGE -->
+  <section class="slide" id="slide10">
+    <div class="slide-content">
+      <span class="eyebrow">10 · Competitive Advantage</span>
+      <h2 class="title">DataWazi is not just another BI tool or AI chatbot.</h2>
+      <p class="subtitle">It combines the full data workflow in one system.</p>
+      
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <div class="advantage-title">1. Full Data Lifecycle in One Place</div>
+          <div class="advantage-desc">From raw data → cleaning → visualization → insights → reports → presentations. Most tools stop at dashboards. DataWazi goes further.</div>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-title">2. Multi-source Intelligence (Future Core Advantage)</div>
+          <div class="advantage-desc">DataWazi is designed to connect: Files (already), Google Drive, Slack, Gmail, Databases. This creates a unified data layer across all tools.</div>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-title">3. Natural Language + Structured Output</div>
+          <div class="advantage-desc">Not just chat answers. Users get: Charts, Tables, Insights, Reports, Exportable presentations. One question → full analytical output.</div>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-title">4. Human + AI Hybrid Control</div>
+          <div class="advantage-desc">AI automates analysis. Users can still clean, adjust, and guide the system. This keeps trust and flexibility.</div>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-title">5. Built for Non-Technical Users</div>
+          <div class="advantage-desc">No SQL. No dashboard setup. No data engineering required. Designed for operators, founders, students, and teams — not just analysts.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">10 / 15</div>
+  </section>
+
+  <!-- SLIDE 11: TEAM (Corrected) -->
+  <section class="slide" id="slide11">
+    <div class="slide-content">
+      <span class="eyebrow">11 · The Team</span>
+      <h2 class="title">We have studied and worked together since 2018.</h2>
+      <p class="subtitle">Friends and co-founders — now building DataWazi.</p>
+      
+      <div class="team-grid">
+        <!-- Frank Ngabonziza - CEO -->
+        <div class="team-card">
+          <img class="team-image" src="https://res.cloudinary.com/franklinrw/image/upload/v1768586544/giramata888_An_African_man_in_a_dark_green_blazer_and_white_s_e9bfa66a-ff93-4cf2-9730-6c5abb8de2db_3_ttdhan.png" alt="Frank Ngabonziza">
+          <div class="team-name">Frank Ngabonziza</div>
+          <div class="team-role">CEO & Co-founder</div>
+          <div class="team-bio">
+            <p><strong>Design-led Founder</strong></p>
+            <p>Previously Senior Product Designer @ RMssoft & Yuzachoice | 5+ years of end-to-end product delivery.</p>
+            <p>Founder & CEO @ Ligter - took a complex concept from vision to full market deployment.</p>
+            <p>Experienced @ Andela & Manifor - expert in turning complex system data into clear, intuitive user flows.</p>
+          </div>
+        </div>
+        
+        <!-- Janvier Ntwali - CTO -->
+        <div class="team-card">
+          <img class="team-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA1fBIKWeBodVSs4OsONhUAYvI-yJCh5sO-A&s" alt="Janvier Ntwali">
+          <div class="team-name">Janvier Ntwali</div>
+          <div class="team-role">CTO & Co-founder</div>
+          <div class="team-bio">
+            <p><strong>Scalable Systems Builder</strong></p>
+<p>Software Engineer @ Andela (USA) — building enterprise-grade tools, machine learning solutions and scalable systems.</p>            <p>Co-founder @ SomaTekAI - engineered a Chrome extension + complex AI analytics platform.</p>
+            <p>Worked internationally @ CodeLand S.r.l. (Italy) | Full Stack Trainer @ eShuri LTD.</p>
+            <p>Experienced @ AEM Academy & JusticeBot - building enterprise-grade tools.</p>
+            <p>Strong in React, Vue and CI/CD.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" style="margin-top: 24px; text-align: center; background: var(--primary); color: white;">
+        <p style="font-size: 0.9rem;">We move fast, ship constantly, and deeply understand both product and engineering.</p>
+      </div>
+    </div>
+    <div class="slide-number">11 / 15</div>
+  </section>
+
+  <!-- SLIDE 12: EARLY FOCUS (PRE-SEED STRATEGY) -->
+  <section class="slide" id="slide12">
+    <div class="slide-content">
+      <span class="eyebrow">12 · Pre-Seed Strategy</span>
+      <h2 class="title">We are starting with file-based analysis</h2>
+      
+      <div class="two-col">
+        <div>
+          <div class="stat-label" style="margin-bottom: 16px;">STARTING</div>
+          <div class="card" style="padding: 24px;">
+            <p>✓ File-based analysis (Excel, CSV)</p>
+            <p>✓ AI cleaning + visualization</p>
+            <p>✓ Chat with data</p>
+            <p>✓ Insights and reporting</p>
+          </div>
+        </div>
+        <div>
+          <div class="stat-label" style="margin-bottom: 16px;">NEXT EXPANSION</div>
+          <div class="card" style="padding: 24px;">
+            <p>→ Google Drive, Gmail, Slack integration</p>
+            <p>→ Database connections</p>
+            <p>→ Multi-source analysis (one question → all data sources)</p>
+            <p>→ Automated reports + PowerPoint generation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">12 / 15</div>
+  </section>
+
+  <!-- SLIDE 13: WHY NOW -->
+  <section class="slide" id="slide13">
+    <div class="slide-content">
+      <span class="eyebrow">13 · Why Now</span>
+      <h2 class="title">Every company uses more tools than ever</h2>
+      
+      <div class="four-col">
+        <div class="card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">insert_drive_file</span><h3>Files</h3></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">chat</span><h3>Messaging apps</h3></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">cloud</span><h3>Cloud storage</h3></div>
+        <div class="card"><span class="material-icons" style="color: var(--primary); font-size: 32px;">storage</span><h3>Databases</h3></div>
+      </div>
+      
+      <div class="card" style="margin-top: 24px; text-align: center;">
+        <p>But analysis is still manual.</p>
+        <p style="margin-top: 16px; font-weight: 600;">Now AI makes it possible to:</p>
+        <p>✓ Understand data automatically</p>
+        <p>✓ Connect multiple sources</p>
+        <p>✓ Generate insights instantly</p>
+      </div>
+    </div>
+    <div class="slide-number">13 / 15</div>
+  </section>
+
+  <!-- SLIDE 14: INSPIRATION / EARLY SIGNAL -->
+  <section class="slide" id="slide14">
+    <div class="slide-content">
+      <span class="eyebrow">14 · Early Signal</span>
+      <h2 class="title">Organizations already try to solve this manually</h2>
+      
+      <div class="problem-list">
+        <div class="problem-item"><span class="material-icons">schedule</span><span>Analysts spend hours cleaning data</span></div>
+        <div class="problem-item"><span class="material-icons">repeat</span><span>Teams build dashboards repeatedly</span></div>
+        <div class="problem-item"><span class="material-icons">description</span><span>Reports are recreated every week</span></div>
+      </div>
+      
+      <div class="card" style="background: var(--primary); color: white; text-align: center; margin-top: 24px;">
+        <p>But the workflow is slow and expensive.</p>
+        <p style="margin-top: 12px; font-size: 1rem;">DataWazi replaces this entire cycle with one system.</p>
+      </div>
+    </div>
+    <div class="slide-number">14 / 15</div>
+  </section>
+
+  <!-- SLIDE 15: CLOSING + THE ASK -->
+  <section class="slide" id="slide15">
+    <div class="slide-content" style="text-align: center;">
+      <span class="eyebrow">15 · The Ask</span>
+      <h2 class="title">We're raising $1.2M to launch and scale</h2>
+      
+      <div class="two-col" style="margin: 32px 0;">
+        <div><div class="stat-number">$1.2M</div><div class="stat-label">Pre-Seed Round</div><div class="stat-desc">18-month runway</div></div>
+        <div><div class="stat-number">$8M</div><div class="stat-label">Post-money valuation</div></div>
+      </div>
+      
+      <div class="three-col">
+        <div class="card"><div class="stat-number" style="font-size: 2rem;">40%</div><div class="stat-label">Product Development</div></div>
+        <div class="card"><div class="stat-number" style="font-size: 2rem;">35%</div><div class="stat-label">Go‑to‑Market</div></div>
+        <div class="card"><div class="stat-number" style="font-size: 2rem;">25%</div><div class="stat-label">Team & Operations</div></div>
+      </div>
+      
+      <div style="margin: 48px 0 32px;">
+        <div class="vision-quote" style="font-size: 1.5rem;">
+          "Every spreadsheet hides a story."
+        </div>
+        <p class="subtitle">A problem. A pattern. An opportunity.</p>
+        <div class="card" style="background: var(--primary); color: white; max-width: 400px; margin: 24px auto;">
+          <p>DataWazi reveals it instantly — and turns it into action.</p>
+        </div>
+      </div>
+      
+      <a href="https://cal.com/frank-b8vdpn" target="_blank" class="cta-button">Book a Meeting →</a>
+      <p style="margin-top: 48px; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted-foreground);">frank@datawazi.ai · datawazi.ai</p>
+      <div class="stat-label" style="margin-top: 32px;">DataWazi — Turning data into understanding</div>
+    </div>
+    <div class="slide-number">15 / 15</div>
+  </section>
+
+</div>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Clean automatic slideshow
+const track = document.getElementById('slideshowTrack');
+let currentIndex = 0;
+let slideshowInterval;
+let isTransitioning = false;
+
+if (track) {
+  const images = track.children;
+  const imageCount = images.length;
+  let imageWidth = images[0]?.clientWidth || 0;
+  
+  function updateImageWidth() {
+    imageWidth = images[0]?.clientWidth || 0;
+    track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  }
+  
+  function goToNextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    currentIndex++;
+    if (currentIndex >= imageCount) {
+      currentIndex = 0;
+      track.style.transform = `translateX(0px)`;
+    } else {
+      track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    }
+    
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 800);
+  }
+  
+  function startSlideshow() {
+    slideshowInterval = setInterval(goToNextSlide, 4000);
+  }
+  
+  window.addEventListener('resize', () => {
+    updateImageWidth();
+  });
+  
+  setTimeout(() => {
+    updateImageWidth();
+    startSlideshow();
+  }, 100);
+}
+</script>
+</body>
+</html>
